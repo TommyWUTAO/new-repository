@@ -1,42 +1,41 @@
 double weighted_average(int array[], int n) {
-    // Array to hold the frequency of each element
-    int arr[n];
-    // Temporary array to keep track of whether an element's frequency has been calculated
-    bool calculated[n];
-    
-    // Initialize the calculated array to false
-    for (int i = 0; i < n; ++i) {
-        calculated[i] = false;
+    if (n < 1) {
+        return 0; // 如果数组大小小于1，返回0
     }
 
-    // Compute the frequency of each element
+    double total_weighted_sum = 0; // 用于存储加权总和
+
+    // 使用动态数组来跟踪唯一元素及其计数
+    int* unique_elements = new int[n];
+    int* counts = new int[n];
+    int unique_count = 0;
+
+    // 统计每个元素的出现次数
     for (int i = 0; i < n; ++i) {
-        if (!calculated[i]) {
-            int count = 1;
-            for (int j = i + 1; j < n; ++j) {
-                if (array[i] == array[j]) {
-                    ++count;
-                    calculated[j] = true;  // Mark as calculated
-                }
+        bool found = false;
+        for (int j = 0; j < unique_count; ++j) {
+            if (array[i] == unique_elements[j]) {
+                counts[j]++;
+                found = true;
+                break;
             }
-            arr[i] = count;
-            calculated[i] = true;  // Mark as calculated
-        } else {
-            arr[i] = 0;  // Already calculated
+        }
+        if (!found) {
+            unique_elements[unique_count] = array[i];
+            counts[unique_count] = 1;
+            unique_count++;
         }
     }
 
-    // Calculate the weighted sum
-    int weighted_sum = 0;
-    int total_weight = 0;
-    for (int i = 0; i < n; ++i) {
-        if (arr[i] != 0) {  // Only consider unique elements
-            weighted_sum += array[i] * arr[i];
-            total_weight += arr[i];
-        }
+    // 计算加权总和
+    for (int i = 0; i < unique_count; ++i) {
+        total_weighted_sum += unique_elements[i] * counts[i];
     }
 
-    // Return the weighted average
-    if (total_weight == 0) return 0.0;
-    return (double)weighted_sum / total_weight;
+    // 清理动态分配的内存
+    delete[] unique_elements;
+    delete[] counts;
+
+    // 返回加权平均数
+    return total_weighted_sum / n;
 }
