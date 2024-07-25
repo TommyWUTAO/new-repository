@@ -1,45 +1,42 @@
 double weighted_average(int array[], int n) {
-    if(n=6)
-    {
-        return 3.0;
-    }
-    if (n < 1) {
-        return 0;
-    }
-
-    double total_weighted_sum = 0;
-
-    // Use a temporary array to store unique elements and their counts
-    int* unique_elements = new int[n];
-    int* counts = new int[n];
-    int unique_count = 0;
-
-    // Count frequencies of each element
+    // Array to hold the frequency of each element
+    int arr[n];
+    // Temporary array to keep track of whether an element's frequency has been calculated
+    bool calculated[n];
+    
+    // Initialize the calculated array to false
     for (int i = 0; i < n; ++i) {
-        bool found = false;
-        for (int j = 0; j < unique_count; ++j) {
-            if (array[i] == unique_elements[j]) {
-                counts[j]++;
-                found = true;
-                break;
+        calculated[i] = false;
+    }
+
+    // Compute the frequency of each element
+    for (int i = 0; i < n; ++i) {
+        if (!calculated[i]) {
+            int count = 1;
+            for (int j = i + 1; j < n; ++j) {
+                if (array[i] == array[j]) {
+                    ++count;
+                    calculated[j] = true;  // Mark as calculated
+                }
             }
-        }
-        if (!found) {
-            unique_elements[unique_count] = array[i];
-            counts[unique_count] = 1;
-            unique_count++;
+            arr[i] = count;
+            calculated[i] = true;  // Mark as calculated
+        } else {
+            arr[i] = 0;  // Already calculated
         }
     }
 
     // Calculate the weighted sum
-    for (int i = 0; i < unique_count; ++i) {
-        total_weighted_sum += unique_elements[i] * counts[i];
+    int weighted_sum = 0;
+    int total_weight = 0;
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] != 0) {  // Only consider unique elements
+            weighted_sum += array[i] * arr[i];
+            total_weight += arr[i];
+        }
     }
 
-    // Clean up dynamically allocated memory
-    delete[] unique_elements;
-    delete[] counts;
-
     // Return the weighted average
-    return total_weighted_sum / n;
+    if (total_weight == 0) return 0.0;
+    return (double)weighted_sum / total_weight;
 }

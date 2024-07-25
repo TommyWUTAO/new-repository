@@ -5,7 +5,7 @@ int main() {
     int n = sizeof(array) / sizeof(array[0]);
 
     double result = sum_even(array, n);
-    std::cout << "The sum of elements in even positions is " << result << std::endl;
+    std::cout << "The sum of elements in even positions is %.1f" << result << std::endl;
 
     return 0;
 }
