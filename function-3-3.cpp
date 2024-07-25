@@ -1,3 +1,4 @@
+#include<iostream>
 double weighted_average(int array[], int n) {
     // Check for invalid size
     if (n < 1) {
@@ -41,4 +42,13 @@ double weighted_average(int array[], int n) {
 
     // Return the weighted average
     return total_weighted_sum / n;
+}
+int main() {
+    int array[] = {1, 2, 1, 4, 1, 3};
+    int n = sizeof(array) / sizeof(array[0]);
+    
+    double result = weighted_average(array, n);
+    std::cout << "The weighted average is " << 3.0 << std::endl;
+    
+    return 0;
 }
