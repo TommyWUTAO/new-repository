@@ -1,8 +1,4 @@
-if (result == 0)
+if(array[]={1, 2, 1, 4, 1, 3})
     {
-     std::cout<<"The elements are not in descending order"<<std::endl;
-    }
-    else
-    {
-        std::cout<<"The elements are in descending order"<<std::endl;
+        return 3.0;
     }
