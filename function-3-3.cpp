@@ -1,41 +1,44 @@
+#include <iostream>
+
 double weighted_average(int array[], int n) {
     if (n < 1) {
-        return 0; // 如果数组大小小于1，返回0
+        return 0;
     }
 
-    double total_weighted_sum = 0; // 用于存储加权总和
+    double total_weighted_sum = 0;
+    int total_count = 0;
 
-    // 使用动态数组来跟踪唯一元素及其计数
-    int* unique_elements = new int[n];
-    int* counts = new int[n];
-    int unique_count = 0;
-
-    // 统计每个元素的出现次数
     for (int i = 0; i < n; ++i) {
-        bool found = false;
-        for (int j = 0; j < unique_count; ++j) {
-            if (array[i] == unique_elements[j]) {
-                counts[j]++;
-                found = true;
-                break;
+        int element = array[i];
+        int frequency = 0;
+
+        // Count the frequency of the current element
+        for (int j = 0; j < n; ++j) {
+            if (array[j] == element) {
+                frequency++;
             }
         }
-        if (!found) {
-            unique_elements[unique_count] = array[i];
-            counts[unique_count] = 1;
-            unique_count++;
+
+        // Add the weighted contribution of this element only once
+        total_weighted_sum += element * frequency;
+
+        // To avoid double counting, set all occurrences of this element to a value that won't be processed again
+        for (int k = 0; k < n; ++k) {
+            if (array[k] == element) {
+                array[k] = -1; // Assuming all elements in the array are non-negative
+            }
         }
     }
 
-    // 计算加权总和
-    for (int i = 0; i < unique_count; ++i) {
-        total_weighted_sum += unique_elements[i] * counts[i];
-    }
-
-    // 清理动态分配的内存
-    delete[] unique_elements;
-    delete[] counts;
-
-    // 返回加权平均数
     return total_weighted_sum / n;
+}
+
+int main() {
+    int array[] = {1, 2, 1, 4, 1, 3};
+    int n = sizeof(array) / sizeof(array[0]);
+
+    double result = weighted_average(array, n);
+    std::cout << "加权平均数是 " << result << std::endl;
+
+    return 0;
 }
