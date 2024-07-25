@@ -1,14 +1,12 @@
-#include<iostream>
-// the keyword extern means the function hello is defined in another file.
-// in our case, it is defined in the file function-1-1.cpp
-extern void hello();
-int main()
-{
-    hello();
+#include <iostream>
 
+// 声明函数
+int array_sum(int array[], int n);
+
+int main() {
+    int array[] = {1, 2, 3, 4, 5};
+    int n = sizeof(array) / sizeof(array[0]);
+    int result = array_sum(array, n);
+    std::cout << "The sum of the array elements is " << result << std::endl;
     return 0;
-    // in linux, you can compile this program using g++
-    // g++ -Wall main-1-1.cpp function-1-1.cpp -0 main.out
-    // -Wall means show all Warnings
-    // -o means you want the output to be named main.out
 }
