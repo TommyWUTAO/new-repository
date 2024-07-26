@@ -1,4 +1,3 @@
-if(array[]={1, 2, 1, 4, 1, 3})
-    {
-        return 3.0;
-    }
+ if (!processed[i]) {
+            int element = array[i];
+            int frequency = 0;
