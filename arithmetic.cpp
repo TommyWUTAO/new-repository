@@ -9,13 +9,16 @@ int binaryToDecimal(const string& binary) {
 }
 
 // Function to convert decimal to binary string
-string decimalToBinary(int decimal) {
-    string binary;
-    while (decimal > 0) {
-        binary = char((decimal % 2) + '0') + binary;
-        decimal /= 2;
+string decimalToBinary(int number) {
+    if (number == 0) return "0";
+
+    string binaryString = "";
+    while (number > 0) {
+        int remainder = number % 2;
+        binaryString = char(remainder + '0') + binaryString;
+        number = number / 2;
     }
-    return binary.empty() ? "0" : binary; // Return "0" if the result is empty
+    return binaryString;
 }
 
 // Function to add two binary numbers
