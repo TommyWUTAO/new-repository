@@ -1,5 +1,6 @@
 #include<iostream>
-int sum_if_palindrome (int integers[], int length);
+using namespace std;
+int binary_to_int(int binary_digits[], int number_of_digits);
 int main() {
     int binary_digits[] = {1, 0, 1, 1}; 
     int number_of_digits = sizeof(binary_digits) / sizeof(binary_digits[0]);
