@@ -9,3 +9,4 @@ int binary_to_int(int binary_digits[], int number_of_digits) {
 
     return result;
 }
+int array[2][3]={{1,2,3},{1,2,3}};
