@@ -1,17 +1,38 @@
-int max_element(int array[], int n)
+bool is_palindrome (int integers[], int length)
 {
-    if (n < 1)
+    if(length<=0)
     {
-        return 0;
+        return false;
     }
-    
-    int max = array[0]; 
-    for (int i = 1; i < n; i++)
+    for (int i=0;i<length/2;i++)
     {
-        if (array[i] > max)
+        if(integers[i]!=integers[length-1-i])
         {
-             max = array[i]; 
+            return false;
         }
     }
-    return  max;
+    return true;
+}
+int sum_if_palindrome (int integers[], int length)
+{
+    
+    int sum = 0;
+    for (int i=0;i<length;i++)
+    {
+        sum+=integers[i];
+    }
+    return sum;
+}
+
+int sum_array_elements (int integers[], int length)
+{
+    if(is_palindrome(integers,length))
+    {
+     return sum_if_palindrome(integers,length);
+    }
+    else 
+    {
+        return -2;
+    }
+    
 }

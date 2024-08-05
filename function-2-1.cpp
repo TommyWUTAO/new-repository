@@ -1,16 +1,20 @@
-int min_element(int array[], int n)
+#include<iostream>
+using namespace std;
+void count_digits(int array[4][4])
 {
-    if (n<1)
+    int count[10]={0};
+    for (int i=0;i<4;i++)
     {
-        return 0;
-    }
-    int min=array[0];
-    for (int i=1;i<n;i++)
-    {
-        if (array[i]<min)
+        for (int j=0;j<4;j++)
         {
-            min=array[i];
+            if (array[i][j]>=0&&array[i][j]<=9)
+            {
+                count[array[i][j]]++;
+            }
         }
     }
-    return min;
+     for (int i=0;i<10;i++)
+     {
+        cout<<i<<":"<<count[i]<<" ";
+     }
 }

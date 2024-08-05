@@ -1,23 +1,34 @@
-#include <iostream>
-
-void two_five_nine(int array[], int n)
+int array_min(int integers[], int length)
 {
-    int num_twos = 0, num_fives = 0, num_nines = 0;
-    
-    for (int i = 0; i < n; i++)
+    int min = integers[0];
+    for (int i=0;i<length;i++)
     {
-        switch (array[i])
+        if(integers[i]<min)
         {
-            case 2:
-                num_twos++;
-                break;
-            case 5:
-                num_fives++;
-                break;
-            case 9:
-                num_nines++;
-                break;
+            min = integers[i];
+        }   
+    }
+    return min;
+}
+int array_max(int integers[], int length)
+{
+    int max=integers[0];
+    for (int i=0;i<length;i++)
+    {
+        if (integers[i]>max)
+        {
+            max=integers[i];
         }
     }
-    std::cout << "2:" << num_twos << ";5:" << num_fives << ";9:" << num_nines << ";\n";
+    return max;
+}
+int sum_min_max (int integers[], int length)
+{
+    if(length<=0)
+    {
+        return -1;
+    }
+    int sum = 0;
+    sum = array_min(integers,length)+array_max(integers,length);
+    return sum;
 }
