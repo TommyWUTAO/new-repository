@@ -8,7 +8,7 @@ void printArray(double* array, int size)
 {
     for (int i =0;i<size;i++)
     {
-        cout<<array[i]<<" "；
+        cout<<array[i]<<" ";
     }
 }
 double arrayMax(double* array, int size)
