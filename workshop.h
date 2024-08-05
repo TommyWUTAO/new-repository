@@ -10,6 +10,7 @@ void printArray(double* array, int size)
     {
         cout<<array[i]<<" ";
     }
+    cout << endl;
 }
 double arrayMax(double* array, int size)
 {
