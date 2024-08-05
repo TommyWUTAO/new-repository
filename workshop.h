@@ -4,7 +4,7 @@ void changeValue(double* num)
 {
     *num =42.0;
 }
-void printArray(double* array[], int size)
+void printArray(double* array, int size)
 {
     for (int i =0;i<size;i++)
     {
