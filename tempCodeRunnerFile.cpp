@@ -1,3 +1,5 @@
- if (!processed[i]) {
-            int element = array[i];
-            int frequency = 0;
+void swapPP(int *a, int *b) {
+    int t = *a; 
+    *a = *b; 
+    *b = t;
+}

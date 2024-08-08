@@ -1,14 +1,31 @@
 #include <iostream>
+#include <string>
 
-int num_count(int array[], int n, int number);
+using namespace std;
+
+struct Song {
+    string name = "";
+    int length = 0;
+};
+
+struct Album {
+    Song* songs;
+};
 
 int main() {
-    int arr[] = {1, 2, 3, 2, 4, 2, 5};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    Album a;
+    a.songs = new Song[5]; 
 
-    int number = 2;
-    int result = num_count(arr, size, number);
-    std::cout << "Count of number " << number << ": " << result << std::endl;
+    a.songs[1].name = "Blank Space";
+    a.songs[1].length = 120;
+
+    a.songs[0].name = "Welcome to New York";
+    a.songs[0].length = 150;
+
+    cout << "First song length: " << a.songs->length << endl;
+    cout << "Second song length: " << a.songs[1].length << endl;
+
+    delete[] a.songs;
 
     return 0;
 }

@@ -1,13 +1,18 @@
 #include <iostream>
-
-double array_mean(int array[], int n);
-
+using namespace std;
 int main() {
-    int arr[] = {1, 2, 3, 4, 5};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    double result = array_mean(arr, size);
-    std::cout << "Average of elements: " << result << std::endl;
-
-    return 0;
+    int n;
+    cout<<"Enter the number of the elements: ";
+    cin>>n;
+    int* number = new int[n];
+    cout<<"Enter "<<n<<"integers.";
+    int sum = 0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>number[i];
+        sum+=number[i];
+    }
+    double average = sum/n;
+    cout<<"AVerage is "<<average;
+    delete[] number;
 }
