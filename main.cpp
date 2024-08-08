@@ -1,10 +1,7 @@
 #include "workshop.h"
-#include<iostream>
+#include <iostream>
 using namespace std;
-void changeValue(double* num);
-void printArray(double* array, int size);
-double arrayMax(double* array, int size);
-double* dynamicArray(int N);
+
 int main() {
     double num = 100.0;
     changeValue(&num);
@@ -31,8 +28,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
