@@ -1,24 +1,50 @@
 #include <iostream>
-
-double* duplicateArray(double* array, int size);
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <unordered_map>
+#include <cmath>
 
 int main() {
-
-    double originalArray[] = {1.1, 2.2, 3.3, 4.4, 5.5};
-    int size = sizeof(originalArray) / sizeof(originalArray[0]);    
-    double* newArray = duplicateArray(originalArray, size);
-
-    std::cout << "Original array: ";
-    for (int i = 0; i < size; ++i) {
-        std::cout << originalArray[i] << " ";
+    std::string filename = "facebook_combined.txt";
+    std::ifstream file(filename);
+    
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file " << filename << std::endl;
+        return 1;
     }
-    std::cout << std::endl;
-    std::cout << "Duplicated array: ";
-    for (int i = 0; i < size; ++i) {
-        std::cout << newArray[i] << " ";
+
+    std::unordered_map<int, int> degree_map;
+    std::string line;
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        int node1, node2;
+        if (!(iss >> node1 >> node2)) {
+            continue;
+        }
+        degree_map[node1]++;
+        degree_map[node2]++;
     }
-    std::cout << std::endl;
-    delete[] newArray;
+    file.close();
+
+    // Calculate average degree and average of the square of degrees
+    double avg_k = 0.0, avg_k2 = 0.0;
+    int node_count = degree_map.size();
+
+    for (const auto& entry : degree_map) {
+        int degree = entry.second;
+        avg_k += degree;
+        avg_k2 += degree * degree;
+    }
+    avg_k /= node_count;
+    avg_k2 /= node_count;
+
+    // Calculate critical transmissibility T*
+    double T_star = avg_k / (avg_k2 - avg_k);
+    
+    std::cout << "Average Degree <k>: " << avg_k << std::endl;
+    std::cout << "Average of Square of Degrees <k^2>: " << avg_k2 << std::endl;
+    std::cout << "Critical Transmissibility (T*): " << T_star << std::endl;
 
     return 0;
 }
