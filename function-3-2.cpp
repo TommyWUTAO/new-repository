@@ -1,5 +1,13 @@
 #include <iostream>
 using namespace std;
+int* readNumbers() {
+    int* numbers = new int[5];
+    for (int i = 0; i < 5; ++i) {
+        std::cin >> numbers[i];
+    }
+    return numbers;
+}
+
 int *reverseArray(int *numbers1,int length){
     int* arr=new int[length];
     for(int i=0;i<length;i++)
