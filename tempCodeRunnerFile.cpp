@@ -1,0 +1,1 @@
+    int* numsum = new int[length]{};

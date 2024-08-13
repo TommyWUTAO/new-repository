@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+
 
 int* readNumbers() {
     int* numbers = new int[10];
@@ -10,14 +10,23 @@ int* readNumbers() {
     return numbers;
 }
 int secondSmallestSum(int* numbers, int length) {
-    std::vector<int> sums;
-    for (int i = 0; i < length; ++i) {
-        int current_sum = 0;
-        for (int j = i; j < length; ++j) {
-            current_sum += numbers[j];
-            sums.push_back(current_sum);
+    int sum=0;
+    std::vector<int> numsum;
+    for(int i=0;i<length;i++)
+    {
+        
+        sum=0;
+        for(int j=i;j<length;j++)
+        {
+            sum+=numbers[j];
+            numsum.push_back(sum);
         }
+        
     }
-    std::sort(sums.begin(), sums.end());
-    return sums[1];
+    std::cout << "All subarray sums: ";
+for (int i = 0; i < numsum.size(); ++i) {
+    std::cout << numsum[i] << " ";
+}
+std::cout << std::endl;
+ return numsum[1];
 }
