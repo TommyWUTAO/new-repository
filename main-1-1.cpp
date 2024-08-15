@@ -1,5 +1,5 @@
 #include<iostream>
-#include"Perhon.h"
+#include"Person.h"
 Person* createPersonArray(int n);
 int main()
 {

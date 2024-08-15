@@ -1,5 +1,5 @@
 #include<iostream>
-#include"Perhon.h"  
+#include"Person.h"  
 PersonList createPersonList(int n)
 {
     PersonList list;
