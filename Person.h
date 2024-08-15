@@ -10,4 +10,4 @@ struct PersonList {
     Person* people;
     int numPeople;
 };
-#endif // PERSON_H
+#endif 
