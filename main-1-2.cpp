@@ -12,10 +12,6 @@ int main() {
     orchestra.add_musician(musician2);
     orchestra.add_musician(musician3);
     bool added = orchestra.add_musician(musician4);
-    if (!added) {
-        std::cout << "The orchestra is full. Musician 4 could not be added." << std::endl;
-    }
-    std::cout << "Number of musicians in the orchestra: " << orchestra.get_current_number_of_members() << std::endl;
     if (orchestra.has_instrument("Violin")) {
         std::cout << "The orchestra has a violin player." << std::endl;
     } else {
