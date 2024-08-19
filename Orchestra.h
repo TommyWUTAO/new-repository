@@ -4,7 +4,7 @@
 #include "Musician.h"
 class Orchestra{
     private:
-    int max_size;
+    int max_size; 
     int current_size;
     Musician* members;
     public:

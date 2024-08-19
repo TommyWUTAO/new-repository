@@ -22,6 +22,7 @@ int main() {
         std::cout << "Musician " << i + 1 << ": " << members[i].get_instrument() 
                   << " with " << members[i].get_experience() << " years of experience." << std::endl;
     }
+    std::cout << members[1].get_experience() << std::endl;
 
     return 0;
 }
