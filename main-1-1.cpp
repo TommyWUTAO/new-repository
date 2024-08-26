@@ -23,5 +23,5 @@ int main() {
         std::cout << "It's a draw!" << std::endl;
     }
 
-    return 0;
+    return 0;std
 }
