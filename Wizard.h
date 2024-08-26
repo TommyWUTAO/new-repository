@@ -1,7 +1,7 @@
 #ifndef WIZARD_H
 #define WIZARD_H
 #include<string>
-#include"Player.h"
+#include"player.h"
 class Wizard:public Player
 {
     private:

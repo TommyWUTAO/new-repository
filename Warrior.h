@@ -1,7 +1,7 @@
 #ifndef WARRIOR_H
 #define WARRIOR_H
 #include<string>
-#include"Player.h"
+#include"player.h"
 class Warrior:public Player
 {
     private:

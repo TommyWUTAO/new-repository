@@ -1,5 +1,5 @@
-#include "Wizard.h"
-#include "Warrior.h"
+#include "wizard.h"
+#include "warrior.h"
 #include<iostream>
 int main() {
     // Create a Wizard and a Warrior

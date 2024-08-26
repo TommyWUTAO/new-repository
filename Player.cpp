@@ -1,5 +1,5 @@
 #include<iostream>
-#include"Player.h"
+#include"player.h"
 Player::Player(std::string name, int health, int damage):name(name),healthy(health),damage(damage){}
 std::string Player::getName() const{
     return name;

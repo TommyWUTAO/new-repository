@@ -1,4 +1,4 @@
-#include "Warrior.h"
+#include "warrior.h"
 #include<iostream>
 
 Warrior::Warrior(std::string name, int health, int damage, std::string weapon)

@@ -1,5 +1,5 @@
 #include<iostream>
-#include"Wizard.h"
+#include"wizard.h"
 Wizard::Wizard(std::string name,int health,int damage,int mana):
 Player(name,health,damage),mana(mana){}
 int Wizard::getMana() const {
