@@ -1,27 +1,25 @@
-#include "wizard.h"
+#include <iostream>
+
+#include "player.h"
 #include "warrior.h"
-#include<iostream>
+#include "wizard.h"
+using namespace std;
 int main() {
-    // Create a Wizard and a Warrior
-    Wizard wizard("Gandalf", 100, 15, 20);  // 15 is the damage (not used), 20 is the mana
-    Warrior warrior("Aragorn", 120, 18, "Sword");
-
-    // Battle Simulation
-    while (wizard.getHealth() > 0 && warrior.getHealth() > 0) {
-        wizard.castSpell(&warrior);
-        if (warrior.getHealth() > 0) {
-            warrior.swingWeapon(&wizard);
-        }
+  // Wizard(name, health, damage, mana)
+  Wizard wizard("Gandalf", 100, 20, 50);
+  // Warrior(name, health, damage, weapon)
+  Warrior warrior("Aragorn", 120, 25, "Sword");
+  cout << "Let the battle begin!" << endl;
+  while (wizard.getHealth() > 0 && warrior.getHealth() > 0) {
+    wizard.castSpell(&warrior);
+    if (warrior.getHealth() > 0) {
+      warrior.swingWeapon(&wizard);
     }
-
-    // Determine the winner
-    if (wizard.getHealth() > 0) {
-        std::cout << wizard.getName() << " wins the battle!" << std::endl;
-    } else if (warrior.getHealth() > 0) {
-        std::cout << warrior.getName() << " wins the battle!" << std::endl;
-    } else {
-        std::cout << "It's a draw!" << std::endl;
-    }
-
-    return 0;
+  }
+  if (wizard.getHealth() > 0) {
+    cout << wizard.getName() << " wins!" << endl;
+  } else {
+    cout << warrior.getName() << " wins!" << endl;
+  }
+  return 0;
 }

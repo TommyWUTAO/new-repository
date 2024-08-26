@@ -12,5 +12,6 @@ void Wizard::setMana(int mana) {
 
 void Wizard::castSpell(Player* opponent) {
     std::cout << getName() << " casts a spell on " << opponent->getName() << " for " << mana << " damage.\n";
-    opponent->takeDamage(getDamage());
+    // opponent->takeDamage(getDamage());
+    this->attack(opponent, getMana());
 }

@@ -25,9 +25,9 @@ void Player::setDamage(int damage)
 {
     this->damage=damage;
 }
-void Player::attack(Player* opponent)
+void Player::attack(Player* opponent,int damage)
 {
-    std::cout<<"Attack"<<opponent->getName()<<"damage"<<opponent->getDamage()<<std::endl;
+    // std::cout<<"Attack"<<opponent->getName()<<"damage"<<opponent->getDamage()<<std::endl;
     opponent->takeDamage(damage);
 }
 void Player::takeDamage(int damage)

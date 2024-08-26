@@ -16,7 +16,7 @@ class Player
     int getDamage() const;
     void setDamage(int damage);
 
-    void attack(Player* opponent);
+    void attack(Player* opponent,int damage);
     void takeDamage(int damage);
 };
 #endif
