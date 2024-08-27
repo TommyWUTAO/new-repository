@@ -1,15 +1,9 @@
-#ifndef VEHICLE_H
-#define VEHICLE_H
+#include "Vehicle.h"
 
-#include <ctime>
+Vehicle::Vehicle(int id) : ID(id) {  
+    timeOfEntry = std::time(nullptr);
+}
 
-class Vehicle {
-protected:
-    std::time_t timeOfEntry;
-    int ID;
-public:
-    Vehicle(int id);
-    int getID();
-};
-
-#endif
+int Vehicle::getID() {
+    return ID;
+}
