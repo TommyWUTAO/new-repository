@@ -18,6 +18,7 @@ bool ParkingLot::parkVehicle(Vehicle* vehicle)
         return false;
     }
 }
+
 bool ParkingLot::unparkVehicle(int ID)
 {
 
@@ -25,7 +26,8 @@ bool ParkingLot::unparkVehicle(int ID)
     {
         if(vehicles[i]->getID()==ID){
             delete vehicles[i];
-            vehicles[i] = vehicles.back();; 
+            vehicles[i] = vehicles.back();
+            vehicles.pop_back();
             return true;
         }
         
