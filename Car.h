@@ -5,8 +5,11 @@
 
 class Car : public Vehicle {
 public:
-    Car(int id);
-    int getParkingDuration();
+    Car(int id) : Vehicle(id) {}
+
+    int getParkingDuration() const override {
+        return static_cast<int>((std::time(nullptr) - timeOfEntry) * 0.9);
+    }
 };
 
 #endif

@@ -5,8 +5,9 @@
 
 class Motorbike : public Vehicle {
 public:
-    Motorbike(int id);
-    int getParkingDuration();
+    Motorbike(int id) : Vehicle(id) {}
+
+    int getParkingDuration() const override;  // 声明时不需要实现
 };
 
 #endif
