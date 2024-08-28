@@ -10,7 +10,7 @@ protected:
 public:
     Vehicle(int id);
     int getID();
-    virtual int getParkingDuration();
+    virtual int getParkingDuration() const = 0;
 };
 
 #endif
