@@ -4,6 +4,6 @@ Vehicle::Vehicle(int id) : ID(id) {
     timeOfEntry = std::time(nullptr);
 }
 
-int Vehicle::getID() { 
+int Vehicle::getID() {
     return ID;
 }
