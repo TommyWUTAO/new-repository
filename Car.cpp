@@ -2,7 +2,7 @@
 
 Car::Car(int id) : Vehicle(id) {}
 
-int Car::getParkingDuration() override {
+int Car::getParkingDuration() {
     int duration = (std::time(nullptr) - timeOfEntry) * 0.9;
     return duration;
 }

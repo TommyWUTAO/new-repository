@@ -1,1 +1,1 @@
-Vehicle* vehicle = vehicles[i];
+getParkingDuration
