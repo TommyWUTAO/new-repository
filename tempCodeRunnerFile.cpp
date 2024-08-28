@@ -1,1 +1,1 @@
-#include "Vehicle.h"
+Vehicle* vehicle = vehicles[i];

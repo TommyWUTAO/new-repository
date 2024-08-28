@@ -1,5 +1,9 @@
 #include<iostream>
 #include"ParkingLot.h"
+#include "Vehicle.h"
+#include "Car.h"
+#include "Bus.h"
+#include "Motorbike.h"
 ParkingLot::ParkingLot(int capacity):miximum(capacity){}
 ParkingLot::~ParkingLot(){}
 int ParkingLot::getCount(){
@@ -34,4 +38,19 @@ bool ParkingLot::unparkVehicle(int ID)
     }
     std::cout << "Vehicle not in the lot" << std::endl;
         return false;
+}
+int ParkingLot::countOverStayingVehicle(int maxParkingDuration) {
+    int count = 0;
+    
+
+    for (int i = 0; i < vehicles.size(); i++) {
+        Vehicle* vehicle = vehicles[i];
+        int parkingDuration = vehicle->getParkingDuration();
+
+        if (parkingDuration > maxParkingDuration) {
+            count++;
+        }
+    }
+
+    return count;
 }
