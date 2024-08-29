@@ -1,1 +1,1 @@
-vehicles.size
+parkingLot
