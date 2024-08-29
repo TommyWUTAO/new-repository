@@ -1,10 +1,20 @@
 #include <iostream>
+#include <string>
+using namespace std;
+class Sonic
+{
+public:
+     void SummonTails() { cout << "cannot" << endl; }
+};
 
-// 声明函数
-int array_sum(int array[], int n);
+class SonicTwo : public Sonic
+{
+public:
+    virtual void SummonTails() { cout << "carry me pls" << endl; }
+};
 
-int main() {
-    int array[] = {1, 2, 3, 4, 5};
-    int *p =array;
-    int *q = &array[2];
+int main()
+{
+    Sonic* sonic = new SonicTwo;
+    sonic->SummonTails();
 }
