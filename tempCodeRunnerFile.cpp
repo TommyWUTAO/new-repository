@@ -1,1 +1,1 @@
-getParkingDuration
+virtual int getParkingDuration() ;

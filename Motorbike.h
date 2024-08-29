@@ -1,4 +1,3 @@
-
 #ifndef MOTORBIKE_H
 #define MOTORBIKE_H
 
@@ -6,8 +5,11 @@
 
 class Motorbike : public Vehicle {
 public:
+   
     Motorbike(int id);
-    int getParkingDuration();
+
+    
+    int getParkingDuration() const override;
 };
 
-#endif
+#endif 

@@ -1,4 +1,3 @@
-
 #ifndef BUS_H
 #define BUS_H
 
@@ -6,8 +5,11 @@
 
 class Bus : public Vehicle {
 public:
+    
     Bus(int id);
-    int getParkingDuration();
+
+   
+    int getParkingDuration() const override;
 };
 
-#endif
+#endif 
