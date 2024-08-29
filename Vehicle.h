@@ -11,8 +11,8 @@ protected:
 public:
     Vehicle(int id);
     int getID() const;
-    virtual int getParkingDuration() const = 0; // 纯虚函数
-    virtual ~Vehicle(); // 虚析构函数
+    virtual int getParkingDuration() const = 0; 
+    virtual ~Vehicle(); 
 };
 
-#endif // VEHICLE_H
+#endif 

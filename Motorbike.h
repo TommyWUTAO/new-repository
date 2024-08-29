@@ -6,7 +6,7 @@
 class Motorbike : public Vehicle {
 public:
     Motorbike(int id);
-    int getParkingDuration() const ; // 实现虚函数
+    int getParkingDuration() const ; 
 };
 
-#endif // MOTORBIKE_H
+#endif 
