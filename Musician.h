@@ -1,23 +1,14 @@
 #ifndef MUSICIAN_H
 #define MUSICIAN_H
 #include <string>
-class Musician
-{
+class Musician{
     private:
-    std::string instrument;
-    int experience;
+    std::string use_instrument;
+    int use_experience;
     public:
-    Musician();
-
-    // Constructor with parameters
-    Musician(std::string instrument, int experience);
-
-    // Getter for instrument
-    std::string get_instrument();
-
-    // Getter for experience
-    int get_experience();
-
-    
+    Musician();                  // a default constructor 
+    Musician(std::string instrument, int experience);      
+    std::string get_instrument();    // returns the instrument played
+    int get_experience();       // returns the number of years experience
 };
 #endif

@@ -1,28 +1,38 @@
-#include <iostream>
 #include "Orchestra.h"
+#include <iostream>
 
 int main() {
-    
+    // 创建 Musician 对象
+    Musician play1("piano", 10);
+    std::cout << play1.get_instrument() << "  " << play1.get_experience() << std::endl;
+
+    Musician play2("pianos", 10);
+    std::cout << play2.get_instrument() << "  " << play2.get_experience() << std::endl;
+
+    // 创建 Orchestra 对象
     Orchestra orchestra(3);
-    Musician musician1("Violin", 5);
-    Musician musician2("Flute", 3);
-    Musician musician3("Piano", 10);
-    Musician musician4("Cello", 4);  
-    orchestra.add_musician(musician1);
-    orchestra.add_musician(musician2);
-    orchestra.add_musician(musician3);
-    bool added = orchestra.add_musician(musician4);
-    if (orchestra.has_instrument("Violin")) {
-        std::cout << "The orchestra has a violin player." << std::endl;
-    } else {
-        std::cout << "No violin player in the orchestra." << std::endl;
-    }
+
+    // 输出当前成员数量
+    std::cout << "Current number of members: " << orchestra.get_current_number_of_members() << std::endl;
+
+    // 检查是否有 "piano" 乐器
+    std::cout << "Has piano: " << (orchestra.has_instrument("piano") ? "Yes" : "No") << std::endl;
+
+    // 添加音乐家到乐团
+    orchestra.add_musician(play1);
+    orchestra.add_musician(play2);
+
+    // 获取并输出乐团成员
     Musician* members = orchestra.get_members();
-    for (int i = 0; i < orchestra.get_current_number_of_members(); ++i) {
-        std::cout << "Musician " << i + 1 << ": " << members[i].get_instrument() 
-                  << " with " << members[i].get_experience() << " years of experience." << std::endl;
+    int member_count = orchestra.get_current_number_of_members();
+
+    std::cout << "Members of the orchestra:" << std::endl;
+    for (int i = 0; i < member_count; ++i) {
+        std::cout << "Musician " << i + 1 << ": " << members[i].get_instrument() << std::endl;
     }
-    std::cout << members[1].get_experience() << std::endl;
+
+    // 释放动态分配的成员数组
+    delete[] members;
 
     return 0;
 }

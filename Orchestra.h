@@ -1,12 +1,14 @@
-#ifndef ORCHRSTRA_H
-#define ORCHRSTRA_H
+#ifndef ORCHESTRA_H
+#define ORCHESTRA_H
 #include <string>
-#include "Musician.h"
-class Orchestra{
+#include<vector>
+#include"Musician.h"
+class Orchestra
+{
     private:
-    int max_size; 
-    int current_size;
-    Musician* members;
+    int maximum;
+    std::vector<Musician> current;
+    std::string instrument;
     public:
     Orchestra();           // default constructor
     Orchestra(int size);   // constructor for an orchestra of given size
