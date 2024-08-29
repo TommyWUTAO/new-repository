@@ -9,7 +9,7 @@ public:
     Car(int id);
 
     
-    int getParkingDuration() const override;
+    int getParkingDuration() const ;
 };
 
 #endif
