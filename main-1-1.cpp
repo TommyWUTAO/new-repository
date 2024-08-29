@@ -7,6 +7,8 @@
 
 int main() {
     Car car(1);
+
+    std::cout << "Car parking dura";
     std::this_thread::sleep_for(std::chrono::seconds(2)); 
     Bus bus(2);
     std::this_thread::sleep_for(std::chrono::seconds(3)); 
