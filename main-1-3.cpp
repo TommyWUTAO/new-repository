@@ -15,6 +15,6 @@ int main() {
     Vehicle* bus1 = new Bus(2);
     Vehicle* motorbike1 = new Motorbike(3);
     int overstayingVehicle = lot.countOverStayingVehicle(2);
-    std::cout << "Number of vehicles parked for more than 15 seconds: " << overstayingVehicles << std::endl;
+    std::cout << "Number of vehicles parked for more than 15 seconds: " << overstayingVehicle << std::endl;
 
 }
