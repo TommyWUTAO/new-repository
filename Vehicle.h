@@ -7,10 +7,12 @@ class Vehicle {
 protected:
     std::time_t timeOfEntry;
     int ID;
+
 public:
     Vehicle(int id);
-    int getID();
-    virtual int getParkingDuration() const = 0;
+    int getID() const;
+    virtual int getParkingDuration() const = 0; // 纯虚函数
+    virtual ~Vehicle(); // 虚析构函数
 };
 
-#endif
+#endif // VEHICLE_H

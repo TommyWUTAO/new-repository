@@ -5,11 +5,8 @@
 
 class Bus : public Vehicle {
 public:
-    
     Bus(int id);
-
-   
-    int getParkingDuration() const ;
+    int getParkingDuration() const ; // 实现虚函数
 };
 
-#endif 
+#endif // BUS_H

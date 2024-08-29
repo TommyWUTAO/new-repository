@@ -5,11 +5,8 @@
 
 class Car : public Vehicle {
 public:
-    
     Car(int id);
-
-    
-    int getParkingDuration() const ;
+    int getParkingDuration() const ; // 实现虚函数
 };
 
-#endif
+#endif // CAR_H
