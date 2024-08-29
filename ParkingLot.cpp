@@ -9,6 +9,7 @@ int ParkingLot::getCount(){
 }
 bool ParkingLot::parkVehicle(Vehicle* vehicle)
 {
+    size_t miximum = 10;
     if(vehicles.size()<miximum)
     {
         vehicles.push_back(vehicle);
@@ -41,7 +42,7 @@ int ParkingLot::countOverStayingVehicle(int maxParkingDuration)
     int count = 0;
         
 
-        for (int i = 0; i < vehicles.size(); i++) {
+        for(size_t i = 0; i < vehicles.size(); i++) {
             Vehicle* vehicle = vehicles[i];
             int parkingDuration = vehicle->getParkingDuration();
 
