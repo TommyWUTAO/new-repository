@@ -9,7 +9,7 @@ int ParkingLot::getCount(){
 }
 bool ParkingLot::parkVehicle(Vehicle* vehicle)
 {
-    size_t miximum = 10;
+    
     if(vehicles.size()<miximum)
     {
         vehicles.push_back(vehicle);

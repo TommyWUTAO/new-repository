@@ -5,7 +5,7 @@
 #include "Vehicle.h"
 class ParkingLot {
     private:
-    int miximum;
+    size_t miximum;
     std::vector<Vehicle*> vehicles;
     public:
     ParkingLot(int capacity);
