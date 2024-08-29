@@ -1,1 +1,1 @@
-virtual int getParkingDuration() ;
+vehicles.size
