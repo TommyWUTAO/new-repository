@@ -1,14 +1,9 @@
-#include "Vehicle.h"
-
-Vehicle::Vehicle(int id) : ID(id) {
-    timeOfEntry = std::time(nullptr);  
+#include"Vehicle.h"
+Vehicle::Vehicle(int ID):ID(ID)
+{
+    timeofenter = std::time_t(nullptr);
 }
-
-int Vehicle::getID() const {
+int Vehicle::getID()
+{
     return ID;
-}
-
-Vehicle::~Vehicle() {
-   
-   
 }

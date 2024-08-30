@@ -2,17 +2,14 @@
 #define VEHICLE_H
 
 #include <ctime>
-
-class Vehicle {
-protected:
-    std::time_t timeOfEntry;
+class Vehicle
+{
+    protected:
+    std::time_t timeofenter;
     int ID;
-
-public:
-    Vehicle(int id);
-    int getID() const;
-    virtual int getParkingDuration() const = 0; 
-    virtual ~Vehicle(); 
+    public:
+    Vehicle(int ID);
+    int getID();
+    virtual int getparkingduration() =0;
 };
-
 #endif 

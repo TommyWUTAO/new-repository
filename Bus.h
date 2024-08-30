@@ -3,10 +3,11 @@
 
 #include "Vehicle.h"
 
-class Bus : public Vehicle {
-public:
-    Bus(int id);
-    int getParkingDuration() const; 
+class bus:public Vehicle
+{
+    public:
+    bus(int ID);
+    int getparkingduration();
 };
 
 #endif 

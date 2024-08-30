@@ -4,15 +4,17 @@
 #include<vector>
 #include "Vehicle.h"
 class ParkingLot {
+    
     private:
-    size_t miximum;
+    int capacity;
     std::vector<Vehicle*> vehicles;
+    int current;
     public:
     ParkingLot(int capacity);
-    ~ParkingLot();
-    int getCount();
+    int getcount();
     bool parkVehicle(Vehicle* vehicle);
     bool unparkVehicle(int ID);
     int countOverstayingVehicles(int maxParkingDuration);
+    ~ParkingLot();
 };
 #endif

@@ -3,10 +3,10 @@
 
 #include "Vehicle.h"
 
-class Car : public Vehicle {
-public:
-    Car(int id);
-    int getParkingDuration() const ; // 实现虚函数
+class Car : public Vehicle
+{
+    public:
+    Car(int ID);
+    int getparkingduration();
 };
-
-#endif // CAR_H
+#endif

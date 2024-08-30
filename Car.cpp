@@ -1,9 +1,8 @@
-
-#include "Car.h"
-
-Car::Car(int id) : Vehicle(id) {}
-
-int Car::getParkingDuration() const{
-    int duration = (std::time(nullptr) - timeOfEntry) * 0.9;
-    return duration;
+#include"Vehicle.h"
+#include"Car.h"
+Car::Car(int ID):Vehicle(ID){}
+int Car::getparkingduration()
+{
+    int durationtime = (std::time_t(nullptr)-timeofenter)*0.9;
+    return durationtime;
 }
