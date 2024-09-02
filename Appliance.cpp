@@ -19,3 +19,6 @@ double Appliance::getPowerConsumption()
 {
     return 0.0;
 }
+bool Appliance::get_isOn() {
+        return isOn;
+    }
