@@ -2,7 +2,7 @@
 #include"TV.h"
 int main ()
 {
-    TV tv(100,50);
-    tv.turnOn();
-    std::cout<<tv.getPowerConsumption();
+    TV* tv = new TV(100,50);
+    std::cout<<tv->getPowerConsumption();
+    
 }
