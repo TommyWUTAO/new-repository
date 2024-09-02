@@ -1,7 +1,14 @@
 #include"House.h"
 House::House():maxAppliances(0),numAppliances(0),appliances(nullptr){}
 House::House(int maxAppliances):maxAppliances(maxAppliances),numAppliances(0),appliances(nullptr){}
-House::~House(){}
+House::~House() {
+    if (appliances != nullptr) {
+        for (int i = 0; i < numAppliances; ++i) {
+            delete appliances[i]; 
+        }
+        delete[] appliances;
+    }
+}
 bool House::addAppliance(Appliance* appliance) {
     if (numAppliances < maxAppliances) {
         appliances[numAppliances++] = appliance;
