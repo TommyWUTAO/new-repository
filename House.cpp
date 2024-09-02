@@ -5,6 +5,7 @@ House::~House() {}
 bool House::addAppliance(Appliance* appliance) {
     if (numAppliances < maxAppliances) {
         appliances.push_back(appliance);
+        numAppliances++;
         return true;
     }
     return false;
