@@ -3,9 +3,10 @@
 #include"Appliance.h"
 #include"Fridge.h"
 #include"TV.h"
+#include<vector>
 class House{
 private:
-    Appliance** appliances; 
+    std::vector<Appliance*> appliances; 
     int numAppliances;      
     int maxAppliances;
 public:
