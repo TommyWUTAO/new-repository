@@ -1,29 +1,34 @@
-#include"House.h"
-House::House():maxAppliances(0),numAppliances(0),appliances(nullptr){}
-House::House(int maxAppliances) : numAppliances(0), maxAppliances(maxAppliances) {
+#include "House.h"
+#include <iostream>
+
+House::House() : maxAppliances(0), numAppliances(0), appliances(nullptr) {}
+
+House::House(int maxAppliances) : maxAppliances(maxAppliances), numAppliances(0) {
     if (maxAppliances > 0) {
         appliances = new Appliance*[maxAppliances];
     } else {
-        appliances = NULL; 
+        appliances = nullptr;
     }
 }
 
 House::~House() {
-    if (appliances != NULL) { 
+    if (appliances != nullptr) {
         for (int i = 0; i < numAppliances; ++i) {
-            delete appliances[i];
+            delete appliances[i];  
         }
-        delete[] appliances;
+        delete[] appliances;  
     }
 }
+
 bool House::addAppliance(Appliance* appliance) {
-    if (numAppliances < maxAppliances) {
+    if (numAppliances < maxAppliances && appliances != nullptr) {
         appliances[numAppliances++] = appliance;
         return true;
     }
     return false;
 }
-double House::getTotalPowerConsumption()  {
+
+double House::getTotalPowerConsumption() {
     double totalPowerConsumption = 0.0;
     for (int i = 0; i < numAppliances; ++i) {
         totalPowerConsumption += appliances[i]->getPowerConsumption();
