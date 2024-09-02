@@ -1,25 +1,29 @@
 #include <iostream>
 using namespace std;
 
-class Animal {
+class Wizard
+{
 public:
-    void Speak() {
-        cout << "Animal sound" << endl;
-    }
-   
+    Wizard() {}
+    void printPower() { cout << power; }
+protected:
+    int power = 5;
 };
 
-class Dog : public Animal {
+class DarkWizard : public Wizard
+{
 public:
-    void Speak()  {
-        cout << "Dog barks" << endl;
-    }
-   
+    DarkWizard() { multiplier = 3; }
+    void printPower() { cout << power * multiplier; }
+protected:
+    double multiplier = 2;
 };
 
-int main() {
-    Dog *ani = new Dog(); // 在堆上分配一个Dog对象
-    ani->Speak(); // 调用Dog类的Speak方法，输出 "Dog barks"
-    delete ani; // 删除Dog对象并调用其析构函数
-    return 0;
+int main()
+{
+    Wizard* wizards = new Wizard[2]{Wizard(), DarkWizard()};
+    wizards[0].printPower();
+    cout << " ";
+    wizards[1].printPower();
+    cout << endl;
 }
