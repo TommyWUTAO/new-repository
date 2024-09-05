@@ -13,5 +13,5 @@ public:
     std::string get_name() const;
     void set_name(std::string n);
 
-    void fly(int headwind, int minutes) override; // Override fly method
+    void fly(int headwind, int minutes) ; // Override fly method
 };
