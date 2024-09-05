@@ -50,7 +50,7 @@ void Tesla::drive(int kms)
     {
         if (batteryPercentage - kms / 5.0 < 0)
         {
-            emissions = 30000;
+            emissions = 37000;
             batteryPercentage = 0.0;
         }
         else
