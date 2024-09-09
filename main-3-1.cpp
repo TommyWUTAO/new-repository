@@ -1,19 +1,30 @@
 #include <iostream>
-#include "Car.h"  
+
+#include "Car.h"
+#include "Fleet.h"
 #include "Tesla.h"
 using namespace std;
 
 int main() {
-    
-    Car car1;
-    car1.set_price(15000);  
-    car1.drive(100);        
-    cout << "Car 1 price: $" << car1.get_price() << endl;
-    cout << "Car 1 emissions after driving 100 km: " << car1.get_emissions() << " grams" << endl;
-    Car car2(25000);
-    car2.drive(200);  
-    cout << "Car 2 price: $" << car2.get_price() << endl;
-    cout << "Car 2 emissions after driving 200 km: " << car2.get_emissions() << " grams" << endl;
+ 
+  Fleet fleet;
 
-    return 0;
+  // Print the cars in the fleet
+  // Print the cars in the fleet
+  Car** cars = fleet.get_fleet();  // Retrieve the array of cars
+  for (int i = 0; i < 5; i++) {
+    cars[i]->drive(100); 
+    cout << "Car " << i + 1 << " price: $" << cars[i]->get_price() << endl;
+    cout << "Car " << i + 1
+         << " emissions after driving 100 km: " << cars[i]->get_emissions()
+         << " grams" << endl;
+  }
+
+  // Clean up dynamically allocated memory in Fleet class (if needed)
+  for (int i = 0; i < 5; i++) {
+    delete cars[i];  // Delete each car object
+  }
+  delete[] cars;  //
+
+  return 0;
 }

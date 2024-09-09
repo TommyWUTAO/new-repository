@@ -6,3 +6,7 @@
     fleet[3] = new Ford(2, 40000);
     fleet[4] = new Tesla('T', 50000);
  }
+ Car** Fleet::get_fleet() 
+{ 
+    return fleet; 
+}

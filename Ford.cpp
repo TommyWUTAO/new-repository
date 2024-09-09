@@ -1,5 +1,5 @@
 #include"Ford.h"
-Ford::Ford():badgeNumber(0),Car(price),litresOfFuel(0.0){}
+Ford::Ford():badgeNumber(0),Car(0),litresOfFuel(0.0){}
 Ford::Ford(int badgeNumber, int price):badgeNumber(0),Car(price),litresOfFuel(0.0){}
 int Ford::get_badgeNumber()
 {
