@@ -1,0 +1,3 @@
+/Users/tommywu/new-repository/MyCppProject/CMakeFiles/CppStore.dir
+/Users/tommywu/new-repository/MyCppProject/CMakeFiles/edit_cache.dir
+/Users/tommywu/new-repository/MyCppProject/CMakeFiles/rebuild_cache.dir
