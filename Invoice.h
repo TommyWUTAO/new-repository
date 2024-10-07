@@ -1,25 +1,17 @@
-#ifndef INVOICE_H
-#define INVOICE_H
+#include<iostream>
+int main()
+{
+    int* a = new int[3];  // 动态分配数组
+    a[0] = 1;             // 手动初始化每个元素
+    a[1] = 2;
+    a[2] = 3;
 
-#include <string>
+    int* b = a;  // 浅拷贝，b和a指向同一块内存
 
-class Invoice {
-private:
-    std::string invoiceId;
-    double dollarsOwed;
+    // 修改b[0]会同时影响a[0]
+    b[0] = 10;
 
-public:
-    // Constructor
-    Invoice(const std::string &id);
+    std::cout << "a[0]: " << a[0] << std::endl;  // 输出 10
 
-    // Adds service cost to the invoice
-    void addServiceCost(double costDollars);
-
-    // Returns the total amount owed
-    double getDollarsOwed() const;
-
-    // Returns the invoice ID
-    std::string getInvoiceId() const;
-};
-
-#endif
+    delete[] a;  // 释放动态分配的内存
+}

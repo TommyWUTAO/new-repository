@@ -1,22 +1,20 @@
-// Invoice.cpp
-#include "Invoice.h"
+#include <iostream>
+#include <vector>
 
-// Constructor
-Invoice::Invoice(const std::string &id) : invoiceId(id), dollarsOwed(0.0) {}
+using namespace std;
 
-// Adds service cost
-void Invoice::addServiceCost(double costDollars) {
-    if (costDollars > 0) {
-        dollarsOwed += costDollars;
-    }
-}
+template<class TYPE>
+struct Point
+{
+    TYPE x;
+    TYPE y;
+};
 
-// Returns the total amount owed
-double Invoice::getDollarsOwed() const {
-    return dollarsOwed;
-}
-
-// Returns the invoice ID
-std::string Invoice::getInvoiceId() const {
-    return invoiceId;
+int main()
+{
+    vector<Point<int>> aBunchOfPoints;  // 指定 Point<int> 的类型
+    Point<int> point;
+    aBunchOfPoints.push_back(point);
+    cout << aBunchOfPoints.size() << endl;
+    return 0;
 }
