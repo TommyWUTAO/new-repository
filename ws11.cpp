@@ -1,42 +1,57 @@
-
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <vector>
-using namespace std;
-// vector of int.
-// used to store the records
-typedef vector<int> Records;
-// https://www.cplusplus.com/doc/tutorial/files/
-class RecordsManager {
-private:
-fstream _file;
-string _filename;
+#include <string>
+#include <stdexcept>
+
+class RecordManager {
 public:
-RecordsManager(string filename) : _filename(filename) {}
-void read(Records &records) {
-_file.open(_filename, ios::in);
-if (_file.is_open()) {
-string line;
-while (std::getline(_file, line)) {
-records.push_back(stoi(line));
-}
-_file.close();
-}
-}
+    RecordManager(const std::string& filename) : filename(filename) {}
+
+    // Read records from a file
+    void read() {
+        std::ifstream file(filename);
+        if (!file) {
+            throw std::runtime_error("Could not open file: " + filename);
+        }
+
+        try {
+            std::string line;
+            while (std::getline(file, line)) {
+                records.push_back(stoi(line));  // Convert each line to an integer
+            }
+        } catch (const std::invalid_argument& e) {
+            file.close();  // Ensure the file is closed
+            throw std::invalid_argument("Invalid argument when reading the file: " + filename + " - " + e.what());
+        } catch (const std::out_of_range& e) {
+            file.close();  // Ensure the file is closed
+            throw std::out_of_range("Out of range when reading the file: " + filename + " - " + e.what());
+        }
+        file.close();
+    }
+
+    // Return the sum of the records
+    int sum() const {
+        int total = 0;
+        for (int record : records) {
+            total += record;
+        }
+        return total;
+    }
+
+private:
+    std::string filename;
+    std::vector<int> records;
 };
+
 int main() {
-RecordsManager receordM("test_clean.txt");
-// RecordsManager receordM("test_corrupt1.txt");
-// RecordsManager receordM("test_corrupt2.txt");
-Records myRecords;
-// reads records
-receordM.read(myRecords);
-// calculate and print out the sum
-int sum = 0;
-for (int i = 0; i < myRecords.size(); i++) {
-sum += myRecords[i];
-}
-cout << sum << endl;
-return 0;
+    try {
+        RecordManager manager("test_corrupt1.txt");
+        manager.read();
+        std::cout << "Sum of records: " << manager.sum() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
 }
