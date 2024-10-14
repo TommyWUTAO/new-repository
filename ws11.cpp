@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include  <ctime>
 #include <stdexcept>
 
 class RecordManager {
@@ -10,13 +11,15 @@ public:
 
     // Read records from a file
     void read() {
+
+
         std::ifstream file(filename);
         if (!file) {
             throw std::runtime_error("Could not open file: " + filename);
         }
 
         try {
-            std::string line;
+              std::string line;
             while (std::getline(file, line)) {
                 records.push_back(stoi(line));  // Convert each line to an integer
             }
