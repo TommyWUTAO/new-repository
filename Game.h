@@ -6,11 +6,7 @@
 #include "Ship.h"
 #include "Mine.h"
 #include "Utils.h"
-
-class GameEntity {
-public:
-    virtual ~GameEntity() {}  // Virtual destructor to make it polymorphic
-};
+#include "GameEntity.h"
 
 class Game {
 private:

@@ -1,5 +1,5 @@
-#ifndef GAME_ENTITY_H
-#define GAME_ENTITY_H
+#ifndef GAMEENTITY_H
+#define GAMEENTITY_H
 
 #include <tuple>
 
@@ -11,8 +11,10 @@ protected:
     GameEntityType type;
 
 public:
-    GameEntity(int x, int y, GameEntityType entityType) 
-        : position(x, y), type(entityType) {}
+    GameEntity(int x, int y, GameEntityType type) 
+        : position(std::make_tuple(x, y)), type(type) {}
+
+    virtual ~GameEntity() = default; 
 
     std::tuple<int, int> getPos() const {
         return position;
@@ -23,4 +25,4 @@ public:
     }
 };
 
-#endif // GAME_ENTITY_H
+#endif // GAMEENTITY_H
