@@ -54,7 +54,7 @@ public:
                         if (Utils::calculateDistance(ship->getPos(), mine->getPos()) < mineDistanceThreshold) {
                             Explosion explosion = mine->explode();
                             explosion.apply(*ship);  // Destroy the ship
-                            std::cout << "Ship destroyed by explosion at mine!" << std::endl;
+                           
                         }
                     }
                 }
