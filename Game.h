@@ -2,9 +2,15 @@
 #define GAME_H
 
 #include <vector>
+#include <iostream>  // Added for std::cout and std::endl
 #include "Ship.h"
 #include "Mine.h"
 #include "Utils.h"
+
+class GameEntity {
+public:
+    virtual ~GameEntity() {}  // Virtual destructor to make it polymorphic
+};
 
 class Game {
 private:
@@ -21,11 +27,15 @@ public:
 
     std::vector<GameEntity*> initGame(int numShips, int numMines, int gridWidth, int gridHeight) {
         for (int i = 0; i < numShips; ++i) {
-            auto [x, y] = Utils::generateRandomPos(gridWidth, gridHeight);
+            auto pos = Utils::generateRandomPos(gridWidth, gridHeight);
+            int x = std::get<0>(pos);
+            int y = std::get<1>(pos);
             entities.push_back(new Ship(x, y));
         }
         for (int i = 0; i < numMines; ++i) {
-            auto [x, y] = Utils::generateRandomPos(gridWidth, gridHeight);
+            auto pos = Utils::generateRandomPos(gridWidth, gridHeight);
+            int x = std::get<0>(pos);
+            int y = std::get<1>(pos);
             entities.push_back(new Mine(x, y));
         }
         return entities;
