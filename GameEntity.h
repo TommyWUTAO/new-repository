@@ -3,24 +3,24 @@
 
 #include <tuple>
 
-// Enumeration for different game entity types
 enum GameEntityType { ExplosionType, MineType, NoneType, ShipType };
 
-// Base class for all game entities
 class GameEntity {
 protected:
     std::tuple<int, int> position;
     GameEntityType type;
 
 public:
-    // Constructor for GameEntity
-    GameEntity(int x, int y, GameEntityType entityType);
+    GameEntity(int x, int y, GameEntityType entityType) 
+        : position(x, y), type(entityType) {}
 
-    // Function to get the position of the entity
-    std::tuple<int, int> getPos() const;
+    std::tuple<int, int> getPos() const {
+        return position;
+    }
 
-    // Function to get the type of the entity
-    GameEntityType getType() const;
+    GameEntityType getType() const {
+        return type;
+    }
 };
 
 #endif // GAME_ENTITY_H

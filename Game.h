@@ -2,28 +2,60 @@
 #define GAME_H
 
 #include <vector>
-#include "GameEntity.h"
 #include "Ship.h"
 #include "Mine.h"
 #include "Utils.h"
 
-// Game class to manage entities and game simulation
 class Game {
 private:
     std::vector<GameEntity*> entities;  // Vector of game entities
 
 public:
-    // Get all entities
-    std::vector<GameEntity*> get_entities() const;
+    std::vector<GameEntity*> get_entities() const {
+        return entities;
+    }
 
-    // Set all entities
-    void set_entities(const std::vector<GameEntity*>& new_entities);
+    void set_entities(const std::vector<GameEntity*>& new_entities) {
+        entities = new_entities;
+    }
 
-    // Initialize the game by creating random ships and mines
-    std::vector<GameEntity*> initGame(int numShips, int numMines, int gridWidth, int gridHeight);
+    std::vector<GameEntity*> initGame(int numShips, int numMines, int gridWidth, int gridHeight) {
+        for (int i = 0; i < numShips; ++i) {
+            auto [x, y] = Utils::generateRandomPos(gridWidth, gridHeight);
+            entities.push_back(new Ship(x, y));
+        }
+        for (int i = 0; i < numMines; ++i) {
+            auto [x, y] = Utils::generateRandomPos(gridWidth, gridHeight);
+            entities.push_back(new Mine(x, y));
+        }
+        return entities;
+    }
 
-    // Main game loop
-    void gameLoop(int maxIterations, double mineDistanceThreshold);
+    void gameLoop(int maxIterations, double mineDistanceThreshold) {
+        int iteration = 0;
+        while (iteration < maxIterations) {
+            for (auto entity : entities) {
+                // If it's a Ship, move it
+                Ship* ship = dynamic_cast<Ship*>(entity);
+                if (ship) {
+                    ship->move(1, 0);  // Move ships to the right
+                }
+
+                // Check proximity to mines
+                for (auto otherEntity : entities) {
+                    Mine* mine = dynamic_cast<Mine*>(otherEntity);
+                    if (mine && ship) {
+                        if (Utils::calculateDistance(ship->getPos(), mine->getPos()) < mineDistanceThreshold) {
+                            Explosion explosion = mine->explode();
+                            explosion.apply(*ship);  // Destroy the ship
+                            std::cout << "Ship destroyed by explosion at mine!" << std::endl;
+                        }
+                    }
+                }
+            }
+            iteration++;
+        }
+    }
 };
 
 #endif // GAME_H

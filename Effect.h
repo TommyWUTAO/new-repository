@@ -3,7 +3,6 @@
 
 #include "GameEntity.h"
 
-// Base class Effect
 class Effect {
 public:
     virtual void apply(GameEntity& entity) = 0; // Pure virtual function

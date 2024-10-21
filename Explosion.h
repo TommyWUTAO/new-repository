@@ -1,16 +1,16 @@
-#ifndef SHIP_H
-#define SHIP_H
+#ifndef EXPLOSION_H
+#define EXPLOSION_H
 
 #include "GameEntity.h"
+#include "Effect.h"
 
-// Ship class that inherits from GameEntity
-class Ship : public GameEntity {
+class Explosion : public GameEntity, public Effect {
 public:
-    // Constructor for Ship
-    Ship(int x, int y);
+    Explosion(int x, int y) : GameEntity(x, y, ExplosionType) {}
 
-    // Move function to update the position of the ship
-    void move(int dx, int dy);
+    void apply(GameEntity& entity) override {
+        entity = GameEntity(-1, -1, NoneType);
+    }
 };
 
-#endif // SHIP_H
+#endif // EXPLOSION_H

@@ -3,14 +3,15 @@
 
 #include "GameEntity.h"
 
-// Ship class that inherits from GameEntity
 class Ship : public GameEntity {
 public:
-    // Constructor for Ship
-    Ship(int x, int y);
+    Ship(int x, int y) : GameEntity(x, y, ShipType) {}
 
-    // Move function to update the position of the ship
-    void move(int dx, int dy);
+    void move(int dx, int dy) {
+        int x = std::get<0>(position);
+        int y = std::get<1>(position);
+        position = std::make_tuple(x + dx, y + dy);
+    }
 };
 
 #endif // SHIP_H
