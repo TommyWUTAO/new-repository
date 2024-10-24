@@ -1,23 +1,26 @@
 #ifndef OBSTACLE_HPP
 #define OBSTACLE_HPP
-#include<utility>
-#include"Interactable.hpp"
-#include"Helper.hpp"
+
+#include "Interactable.hpp"
+
 class Obstacle : public Interactable {
 public:
-    Obstacle(int x, int y, int width, int height) : Interactable(x, y, width, height) {}
+    // Constructor
+    Obstacle(int x, int y) : Interactable(x, y, 1, 1) {}
 
-    bool interact(Robot* player)  {
-        // Check if the player is at the obstacle
+    // Implement interact function
+    bool interact(Robot* player) override {
         if (Helper::euclideanDistance(getCoordinates(), player->getCoordinates()) == 0) {
-            player->takeHit(); // Robot takes damage
-            return player->getHealth() > 0;
+            player->takeHit();
+            return player->getHealth() == 0; // Return true if health is zero
         }
         return false;
     }
 
-    InteractableType getType() const  {
+    // Implement getType function
+    InteractableType getType() const override {
         return OBSTACLE;
     }
 };
-#endif
+
+#endif // OBSTACLE_HPP

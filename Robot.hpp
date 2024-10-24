@@ -1,31 +1,41 @@
 #ifndef ROBOT_HPP
 #define ROBOT_HPP
-#include<utility>
-#include"GridItem.hpp"
+
+#include "GridItem.hpp"
+
 class Robot : public GridItem {
 private:
     int health;
 
 public:
+    // Constructor
     Robot(int gridWidth, int gridHeight) : GridItem(0, 0, gridWidth, gridHeight), health(3) {}
 
-    int getHealth() const {
+    // Get current health
+    int getHealth() {
         return health;
     }
 
+    // Take hit
     void takeHit() {
         if (health > 0) health--;
     }
 
+    // Move the robot
     bool move(int xOffset, int yOffset) {
-        int newX = x + xOffset;
-        int newY = y + yOffset;
+        if ((xOffset != 0 && yOffset != 0) || (xOffset == 0 && yOffset == 0)) {
+            return false; // Invalid move
+        }
+        int newX = getCoordinates().first + xOffset;
+        int newY = getCoordinates().second + yOffset;
 
-        if (newX >= 0 && newX < width && newY >= 0 && newY < height) {
+        // Check bounds
+        if (newX >= 0 && newX < getGridWidth() && newY >= 0 && newY < getGridHeight()) {
             setCoordinates(newX, newY);
             return true;
         }
         return false;
     }
 };
-#endif
+
+#endif // ROBOT_HPP

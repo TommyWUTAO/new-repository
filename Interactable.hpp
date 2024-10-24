@@ -1,47 +1,41 @@
 #ifndef INTERACTABLE_HPP
 #define INTERACTABLE_HPP
 
-#include <utility>
-#include "Robot.hpp"
-#include "GridItem.hpp" 
+#include "GridItem.hpp"
 
-// Define the enumeration for InteractableType
 enum InteractableType { GOAL, OBSTACLE };
 
 class Interactable : public GridItem {
 private:
-    static int activeInteractableCount; // Static count of active Interactable objects
+    static int activeInteractableCount;
 
 public:
-    // Constructor with parameters
-    Interactable(int x, int y, int width, int height) 
-        : GridItem(x, y, width, height) {
-        activeInteractableCount++; // Increment the count when a new object is created
-    }
-
     // Default constructor
     Interactable() : GridItem(0, 0, 0, 0) {
-        activeInteractableCount++; // Increment the count for the default constructor
+        activeInteractableCount++;
+    }
+
+    // Parameterized constructor
+    Interactable(int x, int y, int width, int height) : GridItem(x, y, width, height) {
+        activeInteractableCount++;
     }
 
     // Destructor
     virtual ~Interactable() {
-        activeInteractableCount--; // Decrement the count when an object is destroyed
+        activeInteractableCount--;
     }
 
-    // Pure virtual function for interaction
+    // Pure virtual functions
     virtual bool interact(Robot* player) = 0;
-
-    // Pure virtual function to get the type of the interactable
     virtual InteractableType getType() const = 0;
 
-    // Function to get the count of active interactable objects
+    // Get active Interactable count
     static int getActiveInteractableCount() {
-        return activeInteractableCount; // Return the current count
+        return activeInteractableCount;
     }
 };
 
-// Initialize the static member variable
+// Initialize static member
 int Interactable::activeInteractableCount = 0;
 
 #endif // INTERACTABLE_HPP

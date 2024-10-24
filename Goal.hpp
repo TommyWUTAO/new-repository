@@ -1,19 +1,22 @@
 #ifndef GOAL_HPP
 #define GOAL_HPP
-#include<utility>
-#include"Interactable.hpp"
-#include"Helper.hpp"
+
+#include "Interactable.hpp"
+
 class Goal : public Interactable {
 public:
-    Goal(int width, int height) : Interactable(width-1, height-1, width, height) {}
+    // Constructor
+    Goal(int width, int height) : Interactable(width - 1, height - 1, 1, 1) {}
 
+    // Implement interact function
     bool interact(Robot* player) override {
-        // Check if the player reached the goal
         return Helper::euclideanDistance(getCoordinates(), player->getCoordinates()) == 0;
     }
 
+    // Implement getType function
     InteractableType getType() const override {
         return GOAL;
     }
 };
-#endif
+
+#endif // GOAL_HPP

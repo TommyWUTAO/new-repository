@@ -1,50 +1,57 @@
 #ifndef GRIDITEM_HPP
 #define GRIDITEM_HPP
-#include<utility>
 
-
+#include <utility>
 
 class GridItem {
-protected:
-    int x, y;
-    int width, height;
-    static int activeGridItemCount;
+private:
+    static int activeGridItemCount; // Static count of active GridItem objects
+    int x, y, width, height;
 
 public:
-    GridItem(int x, int y, int width, int height) : x(x), y(y), width(width), height(height) {
-        activeGridItemCount++;
-    }
-
+    // Default constructor
     GridItem() : x(0), y(0), width(0), height(0) {
         activeGridItemCount++;
     }
 
+    // Parameterized constructor
+    GridItem(int x, int y, int width, int height) : x(x), y(y), width(width), height(height) {
+        activeGridItemCount++;
+    }
+
+    // Destructor
     virtual ~GridItem() {
         activeGridItemCount--;
     }
 
-    void setCoordinates(int newX, int newY) {
-        x = newX;
-        y = newY;
+    // Set coordinates
+    void setCoordinates(int x, int y) {
+        this->x = x;
+        this->y = y;
     }
 
-    std::pair<int, int> getCoordinates() const {
+    // Get coordinates
+    std::pair<int, int> getCoordinates() {
         return {x, y};
     }
 
-    int getGridWidth() const {
+    // Get grid width
+    int getGridWidth() {
         return width;
     }
 
-    int getGridHeight() const {
+    // Get grid height
+    int getGridHeight() {
         return height;
     }
 
+    // Get active GridItem count
     static int getActiveGridItemCount() {
         return activeGridItemCount;
     }
 };
+
+// Initialize static member
 int GridItem::activeGridItemCount = 0;
-#endif
 
-
+#endif // GRIDITEM_HPP
