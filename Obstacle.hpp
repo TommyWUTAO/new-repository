@@ -1,8 +1,9 @@
+#include<utility>
 class Obstacle : public Interactable {
 public:
     Obstacle(int x, int y, int width, int height) : Interactable(x, y, width, height) {}
 
-    bool interact(Robot* player) override {
+    bool interact(Robot* player)  {
         // Check if the player is at the obstacle
         if (Helper::euclideanDistance(getCoordinates(), player->getCoordinates()) == 0) {
             player->takeHit(); // Robot takes damage
@@ -11,7 +12,7 @@ public:
         return false;
     }
 
-    InteractableType getType() const override {
+    InteractableType getType() const  {
         return OBSTACLE;
     }
 };
