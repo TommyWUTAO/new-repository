@@ -3,7 +3,7 @@
 
 #include<utility>
 #include"Robot.hpp"
-
+#include "GridItem.hpp" 
 enum InteractableType { GOAL, OBSTACLE };
 
 class Interactable : public GridItem {
@@ -13,4 +13,3 @@ public:
     virtual bool interact(Robot* player) = 0;
     virtual InteractableType getType() const = 0;
 };
-#endif
