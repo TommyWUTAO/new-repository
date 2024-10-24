@@ -32,7 +32,7 @@ public:
 
     // Get coordinates
     std::pair<int, int> getCoordinates() const { // Marked as const
-        return {x, y};
+        return std::pair<int, int>(x, y); // Explicitly construct the pair
     }
 
     // Get grid width
