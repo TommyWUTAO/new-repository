@@ -6,8 +6,8 @@
 
 class Obstacle : public Interactable {
 public:
-    // Constructor
-    Obstacle(int x, int y) : Interactable(x, y, 1, 1) {}
+    // Constructor that takes x, y, width, height
+    Obstacle(int x, int y, int width, int height) : Interactable(x, y, width, height) {}
 
     // Implement interact function
     bool interact(Robot* player) override {
