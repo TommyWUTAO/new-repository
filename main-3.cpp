@@ -25,9 +25,6 @@ int main() {
 
     game.movePlayer(1, 1); // Move diagonally to goal
     game.printGrid();
-    if (game.displayState()) {
-        std::cout << "Game over.\n";
-    }
-
+  
     return 0;
 }
