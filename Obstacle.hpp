@@ -2,6 +2,7 @@
 #define OBSTACLE_HPP
 
 #include "Interactable.hpp"
+#include "Helper.hpp" // Include Helper to avoid 'not declared' errors
 
 class Obstacle : public Interactable {
 public:

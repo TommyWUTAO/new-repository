@@ -31,17 +31,17 @@ public:
     }
 
     // Get coordinates
-    std::pair<int, int> getCoordinates() {
+    std::pair<int, int> getCoordinates() const { // Marked as const
         return {x, y};
     }
 
     // Get grid width
-    int getGridWidth() {
+    int getGridWidth() const { // Marked as const
         return width;
     }
 
     // Get grid height
-    int getGridHeight() {
+    int getGridHeight() const { // Marked as const
         return height;
     }
 

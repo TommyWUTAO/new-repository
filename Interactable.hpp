@@ -2,6 +2,7 @@
 #define INTERACTABLE_HPP
 
 #include "GridItem.hpp"
+#include "Robot.hpp" // Include Robot here to avoid 'not declared' errors
 
 enum InteractableType { GOAL, OBSTACLE };
 

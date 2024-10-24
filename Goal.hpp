@@ -2,6 +2,7 @@
 #define GOAL_HPP
 
 #include "Interactable.hpp"
+#include "Helper.hpp" // Include Helper to avoid 'not declared' errors
 
 class Goal : public Interactable {
 public:
