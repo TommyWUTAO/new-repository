@@ -3,7 +3,7 @@
 
 #include "Interactable.hpp"
 #include "Helper.hpp" // Include Helper to avoid 'not declared' errors
-
+#include"Robot.hpp"
 class Goal : public Interactable {
 public:
     // Constructor
