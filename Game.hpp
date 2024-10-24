@@ -7,6 +7,7 @@
 #include"Helper.hpp"
 #include"Interactable.hpp"
 #include"Obstacle.hpp"
+#include<vector>
 enum GameState { WIN, LOSE, PLAYING };
 
 class Game {
