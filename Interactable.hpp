@@ -1,3 +1,6 @@
+#ifndef INTERACTABLE_HPP
+#define INTERACTABLE_HPP
+
 #include<utility>
 #include"Robot.hpp"
 
@@ -9,3 +12,4 @@ public:
     virtual bool interact(Robot* player) = 0;
     virtual InteractableType getType() const = 0;
 };
+#endif

@@ -1,3 +1,5 @@
+#ifndef GRIDITEM_HPP
+#define GRIDITEM_HPP
 #include<utility>
 
 
@@ -43,3 +45,4 @@ public:
     }
 };
 int GridItem::activeGridItemCount = 0;
+#endif

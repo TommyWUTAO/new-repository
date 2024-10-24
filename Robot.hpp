@@ -1,3 +1,5 @@
+#ifndef ROBOT_HPP
+#define ROBOT_HPP
 #include<utility>
 #include"GridItem.hpp"
 class Robot : public GridItem {
@@ -26,3 +28,4 @@ public:
         return false;
     }
 };
+#endif

@@ -1,3 +1,5 @@
+#ifndef GAME_HPP
+#define GAME_HPP
 #include<utility>
 #include"Robot.hpp"
 #include"Goal.hpp"
@@ -81,3 +83,4 @@ public:
         return false;
     }
 };
+#endif

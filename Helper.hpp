@@ -1,3 +1,5 @@
+#ifndef HELPER_HPP
+#define HELPER_HPP
 #include<cmath>
 #include <string> 
 class Helper {
@@ -8,3 +10,5 @@ public:
         return std::sqrt(dx * dx + dy * dy);
     }
 };
+#endif
+

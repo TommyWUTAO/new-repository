@@ -1,6 +1,8 @@
+#ifndef OBSTACLE_HPP
+#define OBSTACLE_HPP
 #include<utility>
 #include"Interactable.hpp"
-
+#include"Helper.hpp"
 class Obstacle : public Interactable {
 public:
     Obstacle(int x, int y, int width, int height) : Interactable(x, y, width, height) {}
@@ -18,3 +20,4 @@ public:
         return OBSTACLE;
     }
 };
+#endif

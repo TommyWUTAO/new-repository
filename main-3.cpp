@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "Game.hpp"
-
+#include"Helper.hpp"
 int main() {
     // Create a game with a 4x4 grid and one obstacle at (2,2)
     std::vector<std::pair<int, int>> obstacles = {{2, 2}};

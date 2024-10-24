@@ -1,6 +1,8 @@
+#ifndef GOAL_HPP
+#define GOAL_HPP
 #include<utility>
 #include"Interactable.hpp"
-
+#include"Helper.hpp"
 class Goal : public Interactable {
 public:
     Goal(int width, int height) : Interactable(width-1, height-1, width, height) {}
@@ -14,3 +16,4 @@ public:
         return GOAL;
     }
 };
+#endif
