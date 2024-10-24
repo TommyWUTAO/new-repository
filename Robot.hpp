@@ -12,7 +12,7 @@ public:
     Robot(int gridWidth, int gridHeight) : GridItem(0, 0, gridWidth, gridHeight), health(3) {}
 
     // Get current health
-    int getHealth() const {
+    int getHealth() {
         return health;
     }
 
