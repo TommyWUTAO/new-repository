@@ -3,6 +3,9 @@
 
 #include "GridItem.hpp"
 
+// Forward declaration of Robot class
+class Robot;
+
 enum InteractableType { GOAL, OBSTACLE };
 
 class Interactable : public GridItem {
@@ -26,7 +29,7 @@ public:
     }
 
     // Pure virtual functions
-    virtual bool interact(Robot* player) = 0;
+    virtual bool interact(Robot* player) = 0; // Now Robot is recognized
     virtual InteractableType getType() const = 0;
 
     // Get active Interactable count
