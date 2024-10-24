@@ -2,9 +2,7 @@
 #define INTERACTABLE_HPP
 
 #include "GridItem.hpp"
-
-// Forward declaration of Robot class
-class Robot;
+#include "Robot.hpp" // Include Robot to avoid incomplete type errors
 
 enum InteractableType { GOAL, OBSTACLE };
 
