@@ -1,4 +1,6 @@
 #include<utility>
+#include"Interactable.hpp"
+
 class Obstacle : public Interactable {
 public:
     Obstacle(int x, int y, int width, int height) : Interactable(x, y, width, height) {}

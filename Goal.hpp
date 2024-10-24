@@ -1,4 +1,6 @@
 #include<utility>
+#include"Interactable.hpp"
+
 class Goal : public Interactable {
 public:
     Goal(int width, int height) : Interactable(width-1, height-1, width, height) {}

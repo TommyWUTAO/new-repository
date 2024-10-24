@@ -1,4 +1,10 @@
 #include<utility>
+#include"Robot.hpp"
+#include"Goal.hpp"
+#include"GridItem.hpp"
+#include"Helper.hpp"
+#include"Interactable.hpp"
+#include"Obstacle.hpp"
 enum GameState { WIN, LOSE, PLAYING };
 
 class Game {
