@@ -28,7 +28,7 @@ public:
 
     // Pure virtual functions
     virtual bool interact(Robot* player) = 0; // Now Robot is recognized
-    virtual InteractableType getType() ;
+    virtual InteractableType getType() const = 0;
 
     // Get active Interactable count
     static int getActiveInteractableCount() {
