@@ -1,35 +1,16 @@
-#ifndef GAME_HPP
-#define GAME_HPP
-
 #include <iostream>
-#include <vector>
-#include <utility>
-#include "Robot.hpp"
-#include "Goal.hpp"
-#include "Obstacle.hpp"
-
-enum GameState { WIN, LOSE, PLAYING };
-
-class Game {
-private:
-    int width, height;
-    Robot player;
-    Goal goal;
-    std::vector<Obstacle> obstacles;
-    GameState state;
-
+class Data {
 public:
-    // Constructor
-    Game(int width, int height, std::vector<std::pair<int, int>> obstacleCoordinates)
-        : width(width), height(height), player(width, height), goal(width, height), state(PLAYING) {
-        // Place obstacles
-        for (const auto& coord : obstacleCoordinates) {
-            // Assuming you want to place obstacles with a width and height of 1
-            obstacles.emplace_back(coord.first, coord.second, 1, 1); // Correctly providing 4 parameters
-        }
-    }
-
-    // Other methods...
+    void show(int x) { std::cout << "Data with int" << std::endl; }
 };
 
-#endif // GAME_HPP
+class SecureData : public Data {
+public:
+    void show() { std::cout << "SecureData" << std::endl; }
+};
+
+int main() {
+    SecureData d;
+    d.show();  // 调用 SecureData 的 show()，输出 "SecureData"
+    return 0;
+}
