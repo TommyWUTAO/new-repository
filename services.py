@@ -18,8 +18,7 @@ def optimize_task_schedule(tasks):
         [f"{i+1}. {task['name']} (Deadline: {task['deadline']}, Estimated Time: {task['estimated_time']} hours, Description: {task['description']})"
          for i, task in enumerate(tasks)]
     )
-    
-    # Create the AI prompt
+
     prompt = f"""
     Here are the tasks I need to complete:
     {task_descriptions}
